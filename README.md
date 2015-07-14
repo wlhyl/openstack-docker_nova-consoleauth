@@ -7,17 +7,17 @@
 - MY_IP: my_ip
 
 # volumes:
-- /opt/openstack/nova-cert/: /etc/nova
-- /opt/openstack/log/nova-cert/: /var/log/nova/
+- /opt/openstack/nova-consoleauth/: /etc/nova
+- /opt/openstack/log/nova-consoleauth/: /var/log/nova/
 
-# 启动glance
-docker run -d --name nova-cert -p 8774:8774 \
-    -v /opt/openstack/nova-cert/:/etc/nova \
-    -v /opt/openstack/log/nova-cert/:/var/log/nova/ \
+# 启动nova-consoleauth
+docker run -d --name nova-consoleauth \
+    -v /opt/openstack/nova-consoleauth/:/etc/nova \
+    -v /opt/openstack/log/nova-consoleauth/:/var/log/nova/ \
     -e NOVA_DB=10.64.0.52 \
     -e NOVA_DBPASS=nova_dbpass \
     -e RABBIT_HOST=10.64.0.52 \
     -e RABBIT_USERID=openstack \
     -e RABBIT_PASSWORD=openstack \
     -e MY_IP=10.64.0.52 \
-    10.64.0.50:5000/lzh/nova-cert:kilo
+    10.64.0.50:5000/lzh/nova-consoleauth:kilo
