@@ -1,4 +1,4 @@
-# image name lzh/glance:kilo
+# image name lzh/nova-consoleauth:kilo
 FROM 10.64.0.50:5000/lzh/openstackbase:kilo
 
 MAINTAINER Zuhui Liu penguin_tux@live.com

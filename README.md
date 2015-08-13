@@ -11,6 +11,7 @@
 - /opt/openstack/log/nova-consoleauth/: /var/log/nova/
 
 # 启动nova-consoleauth
+```bash
 docker run -d --name nova-consoleauth \
     -v /opt/openstack/nova-consoleauth/:/etc/nova \
     -v /opt/openstack/log/nova-consoleauth/:/var/log/nova/ \
@@ -21,3 +22,4 @@ docker run -d --name nova-consoleauth \
     -e RABBIT_PASSWORD=openstack \
     -e MY_IP=10.64.0.52 \
     10.64.0.50:5000/lzh/nova-consoleauth:kilo
+```

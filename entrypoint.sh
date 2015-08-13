@@ -39,8 +39,6 @@ CONNECTION=mysql://nova:$NOVA_DBPASS@$NOVA_DB/nova
 if [ ! -f /etc/nova/.complete ];then
     cp -rp /nova/* /etc/nova
 
-    chown nova:nova /var/log/nova/
-
     $CRUDINI --set /etc/nova/nova.conf database connection $CONNECTION
 
     $CRUDINI --set /etc/nova/nova.conf DEFAULT rpc_backend rabbit
@@ -55,5 +53,7 @@ if [ ! -f /etc/nova/.complete ];then
 
     touch /etc/nova/.complete
 fi
+
+chown -R nova:nova /var/log/nova/
 
 /usr/bin/supervisord -n
