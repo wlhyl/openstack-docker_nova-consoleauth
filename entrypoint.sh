@@ -50,6 +50,7 @@ if [ ! -f /etc/nova/.complete ];then
     $CRUDINI --set /etc/nova/nova.conf DEFAULT my_ip $MY_IP
 
     $CRUDINI --set /etc/nova/nova.conf oslo_concurrency lock_path /var/lib/nova/tmp
+    $CRUDINI --set /etc/nova/nova.conf DEFAULT state_path /var/lib/nova
 
     touch /etc/nova/.complete
 fi
